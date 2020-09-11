@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+
+<html lang="EN">
+	<head>
+		<title>Weather Station</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+	</head>
+	<body>
+
+
+
+
+
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="{{ url_for('index') }}">Weather Station </a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{{ url_for('index') }}">Home</a></li>
+					<li><a href="{{ url_for('City') }}">Local Weather</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section class="banner full">
+
+
+
+				<article>
+					<img src="/static/assets/images/photagon_nature.jpg" alt="" />
+					<div class="inner">
+						<header>
+                            <p id="city"></p>
+
+                            <h5 id="clouds"></h5>
+                            <h2 id ="temp"></h2>
+                            <div class="hi-low">
+                            </div>
+<button class="button alt style2" onclick="getLocation()">Local Weather</button>
+						</header>
+					</div>
+				</article>
+
+
+			</section>
+
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>
+The Bermuda Triangle got tired of warm weather. It moved to Alaska. Now Santa Claus is missing.</p>
+						<h2>GATI SAIF</h2>
+					</header>
+				</div>
+			</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Gati_Saif. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/static/assets/js/skel.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<script src="/static/assets/js/main.js"></script>
+<script >
+var x = document.getElementById("demo");
+var y1 = document.getElementById("temp");
+var x4 = document.getElementById("clouds");
+var city = document.getElementById("city")
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+  function showPosition(position) {
+
+
+  const http = new XMLHttpRequest();
+      http.open("GET", 'https://api.openweathermap.org/data/2.5/weather?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=0c2b40ce81103e261f0b56bc85b40dff');
+      http.send();
+      http.onload = () => console.log(http.responseText);
+      http.onreadystatechange = function() {
+          var x1;
+          var x2, x3;
+          var city1;
+          if (this.readyState === 4 && this.status === 200) {
+              x2 = this.responseText.substr(152, 6);
+              console.log(x2);
+              x1 = parseFloat(x2) - 273.15;
+              console.log(x1);
+              y1.innerHTML = "Temperature: " + x1.toFixed(2) + " C°";
+              x3 = this.responseText.slice(86, 102);
+              x4.innerHTML = x3;
+              city1 = this.responseText.slice(367, 369);
+              city.innerHTML = "Country: "+city1;
+          }
+
+  };
+  }
+
+}</script>
+	</body>
+
+</html>

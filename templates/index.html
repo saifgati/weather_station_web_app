@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Weather Station</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="{{ url_for('index') }}">Weather Station </a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{{ url_for('index') }}">Home</a></li>
+					<li><a href="{{ url_for('City') }}">Local Weather</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="/static/assets/images/Salary-Finance-closes-32.8m-Series-C-Funding.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>Temperature: {{ temp_c1 }}C°</p>
+                            <br>
+                            <h2>London</h2>
+                            <br>
+                            <p>{{ clouds1 }}</p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/static/assets/images/New-York-Skyline-Wallpaper-1680x1050.jpg" alt="" />
+					<div class="inner">
+						<header>
+							<p>Temperature: {{ temp_c2 }}C°</p>
+                            <br> <h2>New York</h2><br>
+                            <p>{{ clouds2 }}</p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/static/assets/images/paris_0.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Temperature: {{ temp_c3 }}C°</p>
+                            <br>
+                            <h2>Paris</h2>
+                            <br>
+                            <p>{{ clouds3 }}</p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/static/assets/images/experience-tunis-tunisia-emna-f4ce98e114edd011b59720ab62c14f20.jpg"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Temperature: {{ temp_c4 }}C°</p>
+                            <br>
+                            <h2>Tunis</h2>
+                            <br>
+                            <p>{{ clouds4 }}</p>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="/static/assets/images/berlin.jpg"  alt="" />
+					<div class="inner">
+						<header>
+                            <p>Temperature: {{ temp_c5 }}C°</p>
+                            <br>
+                            <h2>Berlin</h2>
+                            <br>
+                            <p>{{ clouds5 }}</p>
+
+						</header>
+					</div>
+				</article>
+			</section>
+
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>
+The Bermuda Triangle got tired of warm weather. It moved to Alaska. Now Santa Claus is missing.</p>
+						<h2>GATI SAIF</h2>
+					</header>
+				</div>
+			</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Gati_Saif. All rights reserved.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/static/assets/js/skel.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<script src="/static/assets/js/main.js"></script>
+
+	</body>
+</html>
